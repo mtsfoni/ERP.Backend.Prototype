@@ -34,7 +34,7 @@ namespace ERP.Backend.Services
         public async Task<Price?> GetPriceByDate(int articleId, DateTime date)
         {
             var article = await articleRepository.GetById(articleId) ?? throw new ArgumentException($"Artikel mit Id {articleId} nicht gefunden");
-            var price = article.Prices.Where(p => p.ValidFrom <= date.Date).OrderBy(p => p.ValidFrom).FirstOrDefault();
+            var price = article.Prices.Where(p => p.ValidFrom.Date <= date.Date).OrderByDescending(p => p.ValidFrom).FirstOrDefault();
             return price;
         }
 
