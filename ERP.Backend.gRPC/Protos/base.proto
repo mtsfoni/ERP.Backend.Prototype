@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+option csharp_namespace = "ERP.Backend.gRPC";
+
+package Base;
+
+message Empty {}

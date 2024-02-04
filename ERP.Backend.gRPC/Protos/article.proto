@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option csharp_namespace = "ERP.Backend.gRPC";
+
+package Article.v0;
+import "Protos/base.proto";
+
+// The Article service definition.
+service ArticleService {
+  rpc GetArticleList (Base.Empty) returns (ArticleListResponse);
+  rpc GetArticleById (ArticleByIdRequest) returns (ArticleResponse);
+  rpc UpdateArticle (UpdateArticleRequest) returns (UpdateArticleResponse);
+  rpc CreateArticle (CreateArticleRequest) returns (CreateArticleResponse);
+  rpc DeleteArticle (ArticleByIdRequest) returns (Base.Empty);
+}
+
+// Request and Response Messages
+message ArticleListResponse {
+  repeated ArticleInfo Articles = 1;
+}
+
+message ArticleInfo {
+  int32 id = 1;
+  string name = 2;
+}
+
+message ArticleByIdRequest {
+  int32 id = 1;
+}
+
+message ArticleResponse {
+  int32 id = 1;
+  string name = 2;
+  string brand = 3;
+}
+
+message UpdateArticleRequest {
+  int32 id = 1;
+  string name = 2;
+  string brand = 3;
+}
+
+message UpdateArticleResponse {
+  bool success = 1;
+}
+
+message CreateArticleRequest {
+  string name = 1;
+  string brand = 2;
+}
+
+message CreateArticleResponse {
+  int32 id = 1;
+}

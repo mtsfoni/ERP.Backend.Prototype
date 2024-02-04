@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+option csharp_namespace = "ERP.Backend.gRPC";
+
+package Price.v0;
+import "Protos/base.proto";
+import "google/protobuf/timestamp.proto";
+
+// The Article service definition.
+service PriceService {
+
+  rpc GetPricesByArticleId (PriceByArticleIdRequest) returns (PriceListResponse);
+  rpc GetPriceByDate (PriceByDateRequest) returns (PriceResponse);  
+  rpc CreatePrice (CreatePriceRequest) returns (CreatePriceResponse);
+  rpc UpdatePrice (UpdatePriceRequest) returns (Base.Empty);
+  rpc DeletePrice (DeletePriceRequest) returns (Base.Empty);
+}
+
+// Request and Response Messages
+message PriceByArticleIdRequest {
+  int32 id = 1;
+}
+
+message PriceListResponse {
+  repeated PriceInfo prices = 1;
+}
+
+message PriceInfo {
+  int32 id = 1;
+  double amount = 2;
+  google.protobuf.Timestamp validFrom = 3;
+}
+
+message PriceByDateRequest {
+  int32 ArticleId = 1;
+  google.protobuf.Timestamp date = 2;
+}
+
+message PriceByIdRequest {
+  int32 id = 1;
+}
+
+message PriceResponse {
+  int32 id = 1;
+  int32 ArticleId = 2;
+  double amount = 3;
+  google.protobuf.Timestamp validFrom = 4;
+}
+
+message CreatePriceRequest {
+  int32 ArticleId = 1;
+  double amount = 2;
+  google.protobuf.Timestamp validFrom = 3;
+}
+
+message CreatePriceResponse {
+  int32 id = 1;
+}
+
+message UpdatePriceRequest {
+  int32 id = 1;
+  int32 ArticleId = 2;
+  double amount = 3;
+  google.protobuf.Timestamp validFrom = 4;
+}
+
+message DeletePriceRequest {
+  int32 id = 1;
+  int32 articleId = 2;
+}
