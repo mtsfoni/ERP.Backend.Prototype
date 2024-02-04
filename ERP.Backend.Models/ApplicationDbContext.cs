@@ -13,9 +13,9 @@ namespace ERP.Backend.Models
         public DbSet<Article> Articles { get; set; }
         public DbSet<Price> Prices { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            options.UseSqlite("Data Source=../ERP-Database.db");
+            optionsBuilder.UseSqlite("Data Source=../ERP-Database.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

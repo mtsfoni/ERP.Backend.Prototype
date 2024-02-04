@@ -41,8 +41,7 @@ namespace ERP.Backend.Models
 
         public async Task Update(T entity)
         {
-            _dbSet.Update(entity);
-            //_context.Entry(entity).State = EntityState.Modified;
+            _dbSet.Update(entity);            
             await _context.SaveChangesAsync();
         }
 

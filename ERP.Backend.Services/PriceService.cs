@@ -26,7 +26,7 @@ namespace ERP.Backend.Services
         public async Task DeletePrice(int id, int articleId)
         {            
             var article = await articleRepository.GetById(articleId) ?? throw new ArgumentException($"Artikel mit Id {articleId} nicht gefunden");
-            var price = article.Prices.FirstOrDefault(x => x.Id == id) ?? throw new ArgumentException($"Preis mit Id {id} bei Artikel mit Id {articleId} nicht gefunden");
+            var price = article.Prices.Find(x => x.Id == id) ?? throw new ArgumentException($"Preis mit Id {id} bei Artikel mit Id {articleId} nicht gefunden");
             article.Prices.Remove(price);
             await articleRepository.Update(article);            
         }
