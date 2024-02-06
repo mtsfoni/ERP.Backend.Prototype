@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ERP.Backend.Models
@@ -12,6 +13,7 @@ namespace ERP.Backend.Models
         public int ArticleId { get; set; }
         public DateTime ValidFrom { get; set; }
         public decimal Amount { get; set; }
+        [JsonIgnore]
         public Article? Article { get; set; }
     }
 }

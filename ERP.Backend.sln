@@ -7,12 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.Models", "ERP.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.gRPC", "ERP.Backend.gRPC\ERP.Backend.gRPC.csproj", "{E829C4C1-49C1-4ABE-9701-DD2EE45F2B64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Backend.Services", "ERP.Backend.Services\ERP.Backend.Services.csproj", "{3E4A917A-8975-459C-AAD2-153124FABAB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.Services", "ERP.Backend.Services\ERP.Backend.Services.csproj", "{3E4A917A-8975-459C-AAD2-153124FABAB0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2FC3B73E-E2F8-4976-89F9-BDDA6B2A608E}"
 	ProjectSection(SolutionItems) = preProject
 		ERP-Database.db = ERP-Database.db
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Backend.REST", "ERP.Backend.REST\ERP.Backend.REST.csproj", "{90CEBE67-0297-43B1-9796-00B77F2746DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{3E4A917A-8975-459C-AAD2-153124FABAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E4A917A-8975-459C-AAD2-153124FABAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E4A917A-8975-459C-AAD2-153124FABAB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90CEBE67-0297-43B1-9796-00B77F2746DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90CEBE67-0297-43B1-9796-00B77F2746DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90CEBE67-0297-43B1-9796-00B77F2746DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90CEBE67-0297-43B1-9796-00B77F2746DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
