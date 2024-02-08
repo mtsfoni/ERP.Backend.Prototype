@@ -1,0 +1,6 @@
+@ERP.Backend.REST_HostAddress = http://localhost:5041
+
+GET {{ERP.Backend.REST_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
