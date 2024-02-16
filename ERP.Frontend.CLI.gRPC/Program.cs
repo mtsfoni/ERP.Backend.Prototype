@@ -2,7 +2,6 @@
 using ERP.Backend.gRPCCodeFirst.Interfaces;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Net.Client;
-using Microsoft.EntityFrameworkCore.Query.Internal;
 using ProtoBuf.Grpc.Client;
 
 Console.WriteLine("Press any key to start");
@@ -15,5 +14,5 @@ var reply = await client.GetArticleList(new Empty());
 Console.WriteLine(string.Join(Environment.NewLine, reply.Select(art => $"{art.Name}, {art.Brand}")));
 
 Console.WriteLine( "");
-Console.WriteLine("Press any key to exit...");
-Console.ReadKey();
+Console.WriteLine("Press enter to exit...");
+Console.ReadLine();

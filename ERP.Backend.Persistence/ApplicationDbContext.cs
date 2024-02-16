@@ -20,8 +20,7 @@ namespace ERP.Backend.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            
+            base.OnModelCreating(modelBuilder);            
             modelBuilder.Entity<Article>()
                 .Navigation(article => article.Prices) 
                 .AutoInclude();
