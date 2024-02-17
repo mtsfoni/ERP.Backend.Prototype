@@ -12,7 +12,6 @@ namespace ERP.Backend.Services
         (IRepository<Article> articleRepository)
         : IPriceService
     {
-        private IRepository<Article> articleRepository { get; set; } = articleRepository;
 
         public async Task<int> CreatePrice(Price price)
         {

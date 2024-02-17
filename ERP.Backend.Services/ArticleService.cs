@@ -5,8 +5,6 @@ namespace ERP.Backend.Services
     public class ArticleService
         (IRepository<Article> articleRepository) : IArticleService
     {
-        private IRepository<Article> articleRepository { get; set; } = articleRepository;
-
         public async Task<List<Article>> GetArticleList()
         {
             return await articleRepository.GetAll();

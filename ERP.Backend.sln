@@ -22,7 +22,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.Interface", "ER
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Frontend.CLI.gRPC", "ERP.Frontend.CLI.gRPC\ERP.Frontend.CLI.gRPC.csproj", "{14315593-CF93-45D5-82C6-CFA07645C03D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Backend.Persistence", "ERP.Backend.Persistence\ERP.Backend.Persistence.csproj", "{3D24B370-35F0-4F5D-8C2D-C4AD644D7E3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.Persistence", "ERP.Backend.Persistence\ERP.Backend.Persistence.csproj", "{3D24B370-35F0-4F5D-8C2D-C4AD644D7E3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
