@@ -7,15 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="9.19.0.84025">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.57.0" />    
+    <PackageReference Include="protobuf-net.Grpc" Version="1.1.1" />    
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ERP.Backend.Models\ERP.Backend.Models.csproj" />
-    <ProjectReference Include="..\ERP.Backend.Persistence\ERP.Backend.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
