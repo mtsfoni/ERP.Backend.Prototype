@@ -1,9 +1,12 @@
-### Run easily with docker
+### Effortless Docker Setup
+
+To get started, simply launch your services using Docker with the following command:
 ```
 docker-compose up -d
 ```
 
-You will find the services under those ports:
-- :5340 - REST (Swagger is active, just visit localhost:5340)
-- :5341 - gRPC
-- :5342 - gRPCCodeFirst (C# only)
+Upon successful setup, the services will be accessible on the following ports:
+
+- **Port 5340**: REST API (Access the Swagger UI by navigating to localhost:5340 in your browser)
+- **Port 5341**: gRPC Service
+- **Port 5342**: gRPC Code-First Approach (Specifically for C# implementations)

@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Packages.props = Directory.Packages.props
 		dockerfile = dockerfile
 		ERP-Database.db = ERP-Database.db
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.REST", "ERP.Backend.REST\ERP.Backend.REST.csproj", "{90CEBE67-0297-43B1-9796-00B77F2746DA}"
