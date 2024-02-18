@@ -1,7 +1,9 @@
 version: '3.8'
 services:
   rest:
-    build: Dockerfile.rest
+    build:
+      context: .
+      dockerfile: dockerfile.REST
     environment:
       DATABASE_TYPE: PostgreSQL 
       DB_CONNECTION_STRING: "Host=postgres;Database=yourapp;Username=youruser;Password=yourpassword"
@@ -11,7 +13,9 @@ services:
       - postgres
 
   grpc:
-    build: Dockerfile.grpc
+    build:
+      context: .
+      dockerfile: dockerfile.gRPC
     environment:
       DATABASE_TYPE: PostgreSQL 
       DB_CONNECTION_STRING: "Host=postgres;Database=yourapp;Username=youruser;Password=yourpassword"
@@ -21,7 +25,9 @@ services:
       - postgres
 
   grpc_code_first:
-    build: Dockerfile.grpcCodeFirst
+    build:
+      context: .
+      dockerfile: dockerfile.gRPCCodeFirst
     environment:
       DATABASE_TYPE: PostgreSQL 
       DB_CONNECTION_STRING: "Host=postgres;Database=yourapp;Username=youruser;Password=yourpassword"

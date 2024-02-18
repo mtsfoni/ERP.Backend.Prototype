@@ -16,6 +16,8 @@
   <ItemGroup>
     <ProjectReference Include="..\ERP.Backend.Interface\ERP.Backend.Interface.csproj" />
     <ProjectReference Include="..\ERP.Backend.Services\ERP.Backend.Services.csproj" />
+    <ProjectReference Include="..\Migrations\ERP.Backend.PostgreSQL\ERP.Backend.PostgreSQL.csproj" />
+    <ProjectReference Include="..\Migrations\ERP.Backend.SQLite\ERP.Backend.SQLite.csproj" />
   </ItemGroup>
 
 </Project>

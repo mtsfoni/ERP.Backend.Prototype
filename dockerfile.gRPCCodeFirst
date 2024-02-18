@@ -41,4 +41,4 @@ COPY --from=build /app ./
 EXPOSE 5342
 
 ENV ASPNETCORE_URLS http://*:5342
-ENTRYPOINT ["dotnet", "ERP.Backend.REST.dll"]
+ENTRYPOINT ["dotnet", "ERP.Backend.gRPCCodeFirst.dll"]
