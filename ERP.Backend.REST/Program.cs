@@ -1,5 +1,6 @@
 using ERP.Backend.Models;
 using ERP.Backend.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +9,23 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 
+if (!Enum.TryParse<DatabaseType>(Environment.GetEnvironmentVariable("DATABASE_TYPE"), true, out DatabaseType databaseType))
+{
+    databaseType = DatabaseType.SQLite;
+    Console.WriteLine("Environment variable DATABASE_TYPE was either not found or has an invalid value");
+    Console.WriteLine("\tFalling back to SQLite");
+}
 
-builder.Services.AddDbContext<ApplicationDbContext>();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    string? connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        connectionString = builder.Configuration.GetConnectionString("ConnectionString");
+    }    
+
+    ApplicationDbContext.Configure(options, databaseType, connectionString);
+});
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(EntityFrameworkRepository<>));
 builder.Services.AddScoped(typeof(IArticleService), typeof(ERP.Backend.Services.ArticleService));
@@ -21,17 +37,30 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+#if DEBUG
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    c.RoutePrefix = "";
+});
+#endif
+
+
+
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Ensure the database is created
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate(); // This line ensures the DB is created
+}
+
 
 app.Run();

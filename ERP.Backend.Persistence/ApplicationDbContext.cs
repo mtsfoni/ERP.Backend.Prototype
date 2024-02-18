@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +10,37 @@ using System.Threading.Tasks;
 
 namespace ERP.Backend.Models
 {
-    public class ApplicationDbContext : DbContext
+    public enum DatabaseType
+    { 
+        SQLite,
+        PostgreSQL
+    }
+
+    public class ApplicationDbContext
+        (DbContextOptions<ApplicationDbContext> options) 
+        : DbContext(options)
     {
         public DbSet<Article> Articles { get; set; }
         public DbSet<Price> Prices { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public static void Configure(DbContextOptionsBuilder optionsBuilder, DatabaseType databaseType, string? connectionString)
         {
-            optionsBuilder.UseSqlite("Data Source=../ERP-Database.db");
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                throw new InvalidOperationException("No valid connection string provided for the database.");
+            }
+
+            if (!optionsBuilder.IsConfigured)
+            {
+                if (databaseType == DatabaseType.PostgreSQL)
+                {
+                    optionsBuilder.UseNpgsql(connectionString);
+                }
+                else 
+                {   
+                    optionsBuilder.UseSqlite(connectionString);
+                }
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

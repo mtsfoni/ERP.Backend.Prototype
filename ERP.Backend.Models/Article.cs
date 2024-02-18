@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,6 +13,7 @@ namespace ERP.Backend.Models
     public class Article
     {
         [DataMember(Order = 1)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [DataMember(Order = 2)]

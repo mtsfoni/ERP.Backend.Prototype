@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  yourservice:
+    build: .
+    environment:
+      DATABASE_TYPE: PostgreSQL # Change to SQLite to use SQLite
+      DB_CONNECTION_STRING: "Host=postgres;Database=yourapp;Username=youruser;Password=yourpassword"
+    ports:
+      - "5340:5340"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: yourapp
+      POSTGRES_USER: youruser
+      POSTGRES_PASSWORD: yourpassword
+    volumes:
+      - ErpBackendData:/var/lib/postgresql/data
+
+volumes:
+  ErpBackendData:
