@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -13,9 +14,10 @@ namespace ERP.Backend.Models
     public class Price
     {
         [DataMember]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]        
         public int Id { get; set; }
         [DataMember]
+        [ForeignKey(nameof(Article))]
         public int ArticleId { get; set; }
         [DataMember]
         public DateTime ValidFrom { get; set; }

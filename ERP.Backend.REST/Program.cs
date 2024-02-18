@@ -1,8 +1,6 @@
 using ERP.Backend.Models;
 using ERP.Backend.Services;
 using Microsoft.EntityFrameworkCore;
-using static ERP.Backend.REST.Provider;
-
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,22 +25,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         connectionString = builder.Configuration.GetConnectionString("ConnectionString");
     }
 
-    var provider = config.GetValue("provider", Sqlite.Name);
-    
+    Console.WriteLine($"DatabaseType is {databaseType}");
+
     if (databaseType == DatabaseType.PostgreSQL)
     {
-        options.UseNpgsql(
-            config.GetConnectionString(Postgres.Name)!,
-            x => x.MigrationsAssembly(Postgres.Assembly)
-        );
-  
+    options.UseNpgsql(
+        connectionString,
+        x => x.MigrationsAssembly(typeof(ERP.Backend.PostgreSQL.Marker).Assembly.GetName().Name!));
     }
     else
     {
         options.UseSqlite(
-            config.GetConnectionString(Sqlite.Name)!,
-            x => x.MigrationsAssembly(Sqlite.Assembly)
-        );
+            connectionString,
+            x => x.MigrationsAssembly(typeof(ERP.Backend.SQLite.Marker).Assembly.GetName().Name!));        
 
     }
 });

@@ -28,7 +28,7 @@ namespace ERP.Backend.Models
             base.OnModelCreating(modelBuilder);            
             modelBuilder.Entity<Article>()
                 .Navigation(article => article.Prices) 
-                .AutoInclude();
+                .AutoInclude();            
         }
 
         public async Task LoadDemoData()

@@ -1,4 +1,4 @@
-﻿namespace ERP.Backend.Postgres
+﻿namespace ERP.Backend.PostgreSQL
 {
     public abstract class Marker { }
 }

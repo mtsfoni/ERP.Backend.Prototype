@@ -13,6 +13,8 @@ COPY ERP.Backend.Persistence/*.csproj ./ERP.Backend.Persistence/
 COPY ERP.Backend.REST/*.csproj ./ERP.Backend.REST/
 COPY ERP.Backend.Services/*.csproj ./ERP.Backend.Services/
 COPY ERP.Frontend.CLI.gRPC/*.csproj ./ERP.Frontend.CLI.gRPC/
+COPY Migrations/ERP.Backend.SQLite/*.csproj ./Migrations/ERP.Backend.SQLite/
+COPY Migrations/ERP.Backend.PostgreSQL/*.csproj ./Migrations/ERP.Backend.PostgreSQL/
 
 RUN dotnet restore
 
@@ -25,11 +27,11 @@ COPY ERP.Backend.Persistence/. ./ERP.Backend.Persistence/
 COPY ERP.Backend.REST/. ./ERP.Backend.REST/
 COPY ERP.Backend.Services/. ./ERP.Backend.Services/
 COPY ERP.Frontend.CLI.gRPC/. ./ERP.Frontend.CLI.gRPC/
-
+COPY Migrations/ERP.Backend.SQLite/. ./Migrations/ERP.Backend.SQLite/
+COPY Migrations/ERP.Backend.PostgreSQL/. ./Migrations/ERP.Backend.PostgreSQL/
 
 WORKDIR /source/ERP.Backend.REST
-RUN dotnet publish -c Debug -o /app 
-
+RUN dotnet publish -c Debug -o /app
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app

@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", 
 		MigrateDatabase.ps1 = MigrateDatabase.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.Postgres", "Migrations\ERP.Backend.Postgres\ERP.Backend.Postgres.csproj", "{95298705-7975-4662-93EF-2253F691CB1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.PostgreSQL", "Migrations\ERP.Backend.PostgreSQL\ERP.Backend.PostgreSQL.csproj", "{95298705-7975-4662-93EF-2253F691CB1B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.SQLite", "Migrations\ERP.Backend.SQLite\ERP.Backend.SQLite.csproj", "{7B15F266-90AA-4039-B876-75481E5C7EF4}"
 EndProject
