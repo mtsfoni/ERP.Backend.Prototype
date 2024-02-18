@@ -28,10 +28,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.Persistence", "ERP.Backend.Persistence\ERP.Backend.Persistence.csproj", "{3D24B370-35F0-4F5D-8C2D-C4AD644D7E3C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{6B357782-71F3-4355-97EC-8A830C3B0AA7}"
+	ProjectSection(SolutionItems) = preProject
+		MigrateDatabase.ps1 = MigrateDatabase.ps1
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Backend.Postgres", "Migrations\ERP.Backend.Postgres\ERP.Backend.Postgres.csproj", "{95298705-7975-4662-93EF-2253F691CB1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.Postgres", "Migrations\ERP.Backend.Postgres\ERP.Backend.Postgres.csproj", "{95298705-7975-4662-93EF-2253F691CB1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Backend.SQLite", "Migrations\ERP.Backend.SQLite\ERP.Backend.SQLite.csproj", "{7B15F266-90AA-4039-B876-75481E5C7EF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP.Backend.SQLite", "Migrations\ERP.Backend.SQLite\ERP.Backend.SQLite.csproj", "{7B15F266-90AA-4039-B876-75481E5C7EF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
