@@ -1,4 +1,4 @@
-### Effortless Docker Setup
+## Effortless Docker Setup
 
 To get started, simply launch your services using Docker with the following command:
 ```
@@ -11,18 +11,18 @@ Upon successful setup, the services will be accessible on the following ports:
 - **Port 5341**: gRPC Service
 - **Port 5342**: gRPC Code-First Approach (Specifically for C# implementations)
 
-#### Managing PostgreSQL with pgAdmin in Docker
+### Managing PostgreSQL with pgAdmin in Docker
 
 To facilitate easy management of your PostgreSQL database, we've included pgAdmin in our Docker setup. pgAdmin provides a web-based interface for database administration, making it easier to manage your databases directly from your browser.
 
-##### Accessing pgAdmin
+#### Accessing pgAdmin
 
 After starting your Docker services with docker-compose up -d, pgAdmin will be available at http://localhost:5050. Use the following default credentials to log in, and remember to change them to more secure ones:
 
 - Email: admin@admin.com
 = Password: admin
 
-##### Connecting pgAdmin to PostgreSQL
+#### Connecting pgAdmin to PostgreSQL
 
 To connect pgAdmin to your PostgreSQL service:
 
@@ -41,14 +41,14 @@ To connect pgAdmin to your PostgreSQL service:
     ```
 6. Click 'Save' to establish the connection.
 
-### Database Configuration
+## Database Configuration
 
 Our services support two types of databases: SQLite and PostgreSQL. By default:
 
 - Docker-Compose automatically opts for PostgreSQL.
 - Launching the services through Visual Studio defaults to using an SQLite database.
 
-#### Customizing Database Selection
+### Customizing Database Selection
 
 To select your preferred database, utilize the DATABASE_TYPE environment variable with either SQLite or PostgreSQL as the value. Additionally, the DB_CONNECTION_STRING environment variable allows for specifying a custom connection string. In the absence of a provided connection string, the service defaults to using the ConnectionString specified in appsettings.json.
 
