@@ -62,4 +62,11 @@ app.MapGet("/", () => "Communication with gRPC endpoints must be made through a 
 app.MapGrpcReflectionService();
 #endif 
 
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate(); // This line ensures the DB is created
+    await dbContext.LoadDemoData();
+}
+
 app.Run();

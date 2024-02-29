@@ -67,4 +67,11 @@ if (app.Environment.IsDevelopment())
     app.MapGrpcReflectionService();
 }
 
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate(); // This line ensures the DB is created
+    await dbContext.LoadDemoData();
+}
+
 app.Run();
