@@ -13,7 +13,8 @@ namespace ERP.Backend.gRPCCodeFirst.Services
     {
         public Task<List<Article>> GetArticleList(Empty request, CallContext context = default)
         {
-            return articleService.GetArticleList();
+            var retVal = articleService.GetArticleList();
+            return retVal;
         }
 
         public Task<Article?> GetArticleById(Int32Value id, CallContext context = default)

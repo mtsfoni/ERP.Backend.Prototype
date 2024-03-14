@@ -12,16 +12,16 @@ namespace ERP.Backend.Models
 {
     [DataContract]
     public class Price
-    {
-        [DataMember]
+    {        
+        [DataMember(Order = 1)]
         [Key]        
         public int Id { get; set; }
-        [DataMember]
+        [DataMember(Order = 2)]
         [ForeignKey(nameof(Article))]
         public int ArticleId { get; set; }
-        [DataMember]
+        [DataMember(Order = 3)]
         public DateTime ValidFrom { get; set; }
-        [DataMember]
+        [DataMember(Order = 4)]
         public decimal Amount { get; set; }
         [IgnoreDataMember]
         [JsonIgnore]
