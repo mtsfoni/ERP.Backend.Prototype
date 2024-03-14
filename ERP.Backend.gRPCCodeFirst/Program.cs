@@ -58,6 +58,7 @@ var app = builder.Build();
 
 
 app.MapGrpcService<ArtikelDistributedService>();
+app.MapGrpcService<PriceDistributedService>();
 app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
 
 
@@ -69,7 +70,7 @@ if (app.Environment.IsDevelopment())
 
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();    
     dbContext.Database.Migrate(); // This line ensures the DB is created
     await dbContext.LoadDemoData();
 }

@@ -1,9 +1,11 @@
-﻿using ERP.Backend.Models;
+﻿using System.ServiceModel;
+using ERP.Backend.Models;
 using Google.Protobuf.WellKnownTypes;
 using ProtoBuf.Grpc;
 
 namespace ERP.Backend.gRPCCodeFirst.Interfaces
 {
+    [ServiceContract]
     public interface IPriceDistributedService
     {
         Task<Int32Value> CreatePrice(Price Price, CallContext context = default);
